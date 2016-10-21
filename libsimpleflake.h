@@ -1,5 +1,12 @@
 #include <assert.h>
-#include <bsd/stdlib.h>
+/* arc4random support for linux */
+#ifdef __ANDROID__
+    #include <stdlib.h>
+#elif __linux__
+    #include <bsd/stdlib.h>
+#else
+    #include <stdlib.h>
+#endif
 #include <stdint.h>
 #include <inttypes.h>
 #include <sys/time.h>
